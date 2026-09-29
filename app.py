@@ -532,7 +532,16 @@ st.sidebar.markdown(
     </strong><br><br>
     Junior Data Scientist Intern<br>
     Yuva Intern<br>
-    Week 2 • EDA
+    Week 2 • EDA<br><br>
+    <span style="
+        display:inline-block;
+        padding:6px 10px;
+        border-radius:8px;
+        background:rgba(129,140,248,0.14);
+        border:1px solid rgba(129,140,248,0.24);
+        color:#c4b5fd;
+        font-weight:700;
+    ">👨‍💻 Anand Raj Yadav</span>
     </div>
     """,
     unsafe_allow_html=True
@@ -603,6 +612,25 @@ st.html("""
 
         <div class="hero-badge">
             🚀 Junior Data Scientist Internship • Week 2
+        </div>
+
+        <div style="
+            position:relative;
+            z-index:2;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            margin-top:12px;
+            padding:8px 15px;
+            border-radius:999px;
+            background:linear-gradient(90deg, rgba(99,102,241,0.20), rgba(14,165,233,0.16));
+            border:1px solid rgba(129,140,248,0.34);
+            color:#e0e7ff;
+            font-size:0.86rem;
+            font-weight:700;
+            box-shadow:0 8px 25px rgba(79,70,229,0.12);
+        ">
+            👨‍💻 Developed by <span style="color:#c4b5fd;">Anand Raj Yadav</span>
         </div>
 
     </div>
@@ -730,6 +758,24 @@ for container, icon, label, value, caption in cards:
 # ============================================================
 # NAVIGATION TABS
 # ============================================================
+
+st.html("""
+<div style="
+    margin:6px 0 18px 0;
+    padding:12px 18px;
+    border-radius:14px;
+    background:rgba(15,23,42,0.58);
+    border:1px solid rgba(148,163,184,0.13);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.04);
+    color:#94a3b8;
+    font-size:0.88rem;
+">
+    <span style="color:#c4b5fd;font-weight:800;">ANALYST</span>
+    &nbsp;•&nbsp; Anand Raj Yadav
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <span style="color:#cbd5e1;">Junior Data Scientist Intern</span>
+</div>
+""")
 
 tabs = st.tabs(
     [
@@ -1431,7 +1477,11 @@ with tabs[7]:
 st.html("""
     <div class="footer">
 
-        <strong>Retail Intelligence Dashboard</strong><br>
+        <strong>Retail Intelligence Dashboard</strong><br><br>
+
+        <span style="color:#c4b5fd;font-size:0.95rem;font-weight:800;">
+            👨‍💻 Developed by Anand Raj Yadav
+        </span><br>
 
         Built with Python • Pandas • Plotly • SciPy • Streamlit<br>
 
