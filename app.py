@@ -10,7 +10,7 @@ from scipy.stats import mannwhitneyu
 # ============================================================
 
 st.set_page_config(
-    page_title="Retail Intelligence | EDA",
+    page_title="Retail Intelligence | EDA + Statistical Modeling",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -532,7 +532,7 @@ st.sidebar.markdown(
     </strong><br><br>
     Junior Data Scientist Intern<br>
     Yuva Intern<br>
-    Week 2 • EDA<br><br>
+    Week 3 • Statistical Modeling<br><br>
     <span style="
         display:inline-block;
         padding:6px 10px;
@@ -606,12 +606,12 @@ st.html("""
         </div>
 
         <div class="hero-subtitle">
-            Interactive Exploratory Data Analysis Dashboard
-            • Revenue • Customers • Products • Transactions
+            Interactive Retail Intelligence Dashboard
+            • EDA • Statistical Modeling • Hypothesis Testing • Business Insights
         </div>
 
         <div class="hero-badge">
-            🚀 Junior Data Scientist Internship • Week 2
+            🚀 Junior Data Scientist Internship • Week 3 • Statistical Modeling
         </div>
 
         <div style="
@@ -786,6 +786,7 @@ tabs = st.tabs(
         "👥 Customers",
         "↩️ Returns",
         "🧪 Statistics",
+        "📊 Week 3 Modeling",
         "🔎 Explorer"
     ]
 )
@@ -1440,11 +1441,346 @@ with tabs[6]:
             """)
 
 
+
+# ============================================================
+# WEEK 3 — STATISTICAL MODELING & HYPOTHESIS TESTING
+# ============================================================
+
+with tabs[7]:
+
+    st.html('<div class="section-title">📊 Week 3 • Statistical Modeling & Hypothesis Testing</div>')
+    st.html(
+        '<div class="section-subtitle">'
+        'Invoice-level OLS modeling, robust statistical inference, diagnostics, '
+        'hypothesis testing and sensitivity analysis.'
+        '</div>'
+    )
+
+    # Final validated Week 3 results from the statistical modeling notebook/report.
+    MODEL_N = 19960
+    MODEL_R2 = 0.285469
+    MODEL_ADJ_R2 = 0.284860
+    MODEL_MAE = 0.712313
+    MODEL_RMSE = 1.019302
+    MODEL_P = "< 0.001"
+    BP_P = "< 0.001"
+    SENS_N = 19259
+    REMOVED = 701
+    SENS_R2 = 0.413878
+
+    h1_p = 0.08383
+    h2_p = 4.235e-43
+    h3_p = 0.16141
+
+    # -----------------------------
+    # Model KPI cards
+    # -----------------------------
+    st.html('<div class="section-title">🎯 Model Performance</div>')
+
+    m1, m2, m3, m4, m5 = st.columns(5)
+
+    model_cards = [
+        (m1, "📊", "Observations", f"{MODEL_N:,}", "Invoice-level orders"),
+        (m2, "R²", "R²", f"{MODEL_R2:.4f}", "Variance explained"),
+        (m3, "📐", "Adjusted R²", f"{MODEL_ADJ_R2:.4f}", "Adjusted for predictors"),
+        (m4, "📉", "MAE", f"{MODEL_MAE:.4f}", "Log scale"),
+        (m5, "📏", "RMSE", f"{MODEL_RMSE:.4f}", "Log scale"),
+    ]
+
+    for container, icon, label, value, caption in model_cards:
+        with container:
+            st.html(f"""
+                <div class="kpi-card">
+                    <div class="kpi-icon">{icon}</div>
+                    <div class="kpi-label">{label}</div>
+                    <div class="kpi-value">{value}</div>
+                    <div class="kpi-caption">{caption}</div>
+                </div>
+            """)
+
+    st.markdown("")
+
+    # -----------------------------
+    # Research question
+    # -----------------------------
+    st.html('<div class="section-title">🔬 Research Question</div>')
+    st.html("""
+        <div class="glass-panel">
+            <div class="insight">
+                <strong>Research Question:</strong><br>
+                Which transaction, product-mix and temporal characteristics are
+                significantly associated with invoice-level order value?
+            </div>
+            <div class="insight">
+                <strong>Primary Target:</strong> LogOrderValue = log(1 + OrderValue)
+                &nbsp; • &nbsp;
+                <strong>Model:</strong> Ordinary Least Squares (OLS)
+                &nbsp; • &nbsp;
+                <strong>Inference:</strong> HC3 robust standard errors
+            </div>
+        </div>
+    """)
+
+    # -----------------------------
+    # Hypotheses
+    # -----------------------------
+    st.html('<div class="section-title">🧪 Hypothesis Testing</div>')
+
+    hypothesis_df = pd.DataFrame([
+        {
+            "Hypothesis": "H1 — Total Quantity",
+            "p-value": h1_p,
+            "Decision": "Fail to Reject H₀",
+            "Interpretation": "Insufficient evidence of a significant association at 5%."
+        },
+        {
+            "Hypothesis": "H2 — Unique Products",
+            "p-value": h2_p,
+            "Decision": "Reject H₀",
+            "Interpretation": "Strong evidence of a significant association with order value."
+        },
+        {
+            "Hypothesis": "H3 — Country",
+            "p-value": h3_p,
+            "Decision": "Fail to Reject H₀",
+            "Interpretation": "Country is not statistically significant after controls."
+        }
+    ])
+
+    h1, h2, h3 = st.columns(3)
+
+    cards = [
+        (h1, "H1", "Total Quantity", h1_p, "Fail to Reject H₀"),
+        (h2, "H2", "Unique Products", h2_p, "Reject H₀"),
+        (h3, "H3", "Country", h3_p, "Fail to Reject H₀")
+    ]
+
+    for col, h, variable, p, decision in cards:
+        with col:
+            decision_icon = "✅" if p < 0.05 else "⚪"
+            p_display = f"{p:.3e}" if p < 0.001 else f"{p:.5f}"
+            st.html(f"""
+                <div class="glass-panel">
+                    <div style="font-size:1.5rem;font-weight:800;color:#c4b5fd;">{h}</div>
+                    <div style="font-size:1.05rem;font-weight:700;margin-top:5px;">{variable}</div>
+                    <div style="color:#94a3b8;margin-top:12px;">p-value</div>
+                    <div style="font-size:1.45rem;font-weight:800;margin-top:3px;">{p_display}</div>
+                    <div class="insight" style="margin-top:14px;">
+                        {decision_icon} <strong>{decision}</strong>
+                    </div>
+                </div>
+            """)
+
+    st.dataframe(
+        hypothesis_df.assign(
+            **{"p-value": hypothesis_df["p-value"].map(
+                lambda x: f"{x:.3e}" if x < 0.001 else f"{x:.5f}"
+            )}
+        ),
+        use_container_width=True,
+        hide_index=True
+    )
+
+    # -----------------------------
+    # Model interpretation
+    # -----------------------------
+    st.html('<div class="section-title">📈 Statistical Interpretation</div>')
+
+    st.html("""
+        <div class="glass-panel">
+            <div class="insight">
+                <strong>Unique Products:</strong>
+                This predictor showed extremely strong statistical evidence of an
+                association with order value. More diverse product baskets are
+                therefore an important signal for understanding high-value orders.
+                This is an association, not proof of causality.
+            </div>
+
+            <div class="insight">
+                <strong>Total Quantity:</strong>
+                The p-value of 0.08383 is above the 5% threshold. The analysis
+                therefore does not provide sufficient evidence to reject the null
+                hypothesis at α = 0.05.
+            </div>
+
+            <div class="insight">
+                <strong>Country:</strong>
+                The p-value of 0.16141 indicates insufficient evidence that the
+                country grouping is independently associated with order value
+                after the other model variables are controlled.
+            </div>
+        </div>
+    """)
+
+    # -----------------------------
+    # Model metrics / diagnostics
+    # -----------------------------
+    d1, d2 = st.columns(2)
+
+    with d1:
+        st.html('<div class="section-title">🩺 Diagnostic Checks</div>')
+        diagnostics = pd.DataFrame([
+            ["Overall model", MODEL_P, "Statistically significant"],
+            ["Breusch–Pagan test", BP_P, "Heteroscedasticity detected"],
+            ["Robust inference", "HC3", "Used for coefficient inference"],
+            ["Primary target", "LogOrderValue", "Log-transformed order value"],
+        ], columns=["Check", "Result", "Interpretation"])
+
+        st.dataframe(
+            diagnostics,
+            use_container_width=True,
+            hide_index=True
+        )
+
+    with d2:
+        st.html('<div class="section-title">🧩 Predictors</div>')
+        predictors = pd.DataFrame({
+            "Feature": [
+                "TotalQuantity",
+                "UniqueProducts",
+                "AvgUnitPrice",
+                "Hour",
+                "DayOfWeek",
+                "Month",
+                "IsWeekend",
+                "CountryGroup"
+            ],
+            "Role": [
+                "Transaction quantity",
+                "Product diversity",
+                "Average unit price",
+                "Purchase hour",
+                "Day-of-week effect",
+                "Seasonality",
+                "Weekend indicator",
+                "Country grouping"
+            ]
+        })
+        st.dataframe(
+            predictors,
+            use_container_width=True,
+            hide_index=True
+        )
+
+    # -----------------------------
+    # R² comparison
+    # -----------------------------
+    st.html('<div class="section-title">🔍 Sensitivity Analysis</div>')
+
+    sensitivity_df = pd.DataFrame({
+        "Model": ["Full Model", "Sensitivity Model"],
+        "Observations": [MODEL_N, SENS_N],
+        "Removed": [0, REMOVED],
+        "R²": [MODEL_R2, SENS_R2]
+    })
+
+    fig_sens = px.bar(
+        sensitivity_df,
+        x="Model",
+        y="R²",
+        text="R²",
+        title="Model Fit Before vs After Influence Screening"
+    )
+    fig_sens.update_traces(texttemplate="%{text:.4f}", textposition="outside")
+    fig_sens.update_layout(
+        template="plotly_dark",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        yaxis=dict(range=[0, max(SENS_R2 * 1.18, 0.5)])
+    )
+    st.plotly_chart(fig_sens, use_container_width=True)
+
+    s1, s2, s3 = st.columns(3)
+    with s1:
+        st.metric("Full Model R²", f"{MODEL_R2:.4f}")
+    with s2:
+        st.metric("Sensitivity R²", f"{SENS_R2:.4f}")
+    with s3:
+        st.metric("Potentially Influential", f"{REMOVED:,}")
+
+    st.html("""
+        <div class="insight">
+            ⚠️ The increase in R² after influence screening shows that unusual
+            observations materially affect model fit. These observations should
+            be investigated as possible bulk orders, unusually high-value orders,
+            or other special transaction segments rather than being automatically
+            treated as errors.
+        </div>
+    """)
+
+    # -----------------------------
+    # Business implications
+    # -----------------------------
+    st.html('<div class="section-title">💼 Business Implications</div>')
+
+    implications = [
+        "🛒 <strong>Product diversity matters:</strong> Unique Products is the strongest statistically supported predictor in this analysis, suggesting that cross-selling and basket-building strategies deserve attention.",
+        "🎯 <strong>Recommendation systems:</strong> Product combinations and basket diversity can be useful inputs for personalized recommendations and bundle strategies.",
+        "📦 <strong>Quantity needs deeper modeling:</strong> Total Quantity was not significant at 5%, so nonlinear effects, product mix and interaction effects may be more informative than quantity alone.",
+        "🌍 <strong>Country is not independently significant:</strong> Geographic differences should not be interpreted from country alone once other transaction characteristics are controlled.",
+        "🔎 <strong>Influential orders matter:</strong> The sensitivity analysis indicates that a small number of unusual observations can substantially change model fit and should be investigated as a separate business segment."
+    ]
+
+    for item in implications:
+        st.html(f'<div class="insight">{item}</div>')
+
+    # -----------------------------
+    # Limitations / future work
+    # -----------------------------
+    l1, l2 = st.columns(2)
+
+    with l1:
+        st.html('<div class="section-title">⚠️ Assumptions & Limitations</div>')
+        st.html("""
+            <div class="glass-panel">
+                <div class="insight">The analysis is observational and therefore does not establish causality.</div>
+                <div class="insight">Heteroscedasticity was detected, so HC3 robust standard errors were used.</div>
+                <div class="insight">Country categories were grouped to reduce sparse-category instability.</div>
+                <div class="insight">CustomerID was not used as a raw numeric predictor.</div>
+                <div class="insight">Negative quantities were excluded from the primary positive-sales order-value model because they may represent returns, cancellations or reversals.</div>
+            </div>
+        """)
+
+    with l2:
+        st.html('<div class="section-title">🚀 Future Improvements</div>')
+        st.html("""
+            <div class="glass-panel">
+                <div class="insight">Add product categories, promotions and discount-related variables.</div>
+                <div class="insight">Test nonlinear and interaction effects.</div>
+                <div class="insight">Compare Ridge, Lasso and tree-based models.</div>
+                <div class="insight">Use train-test splits and cross-validation for predictive evaluation.</div>
+                <div class="insight">Explore RFM/customer-level and mixed-effects modeling.</div>
+                <div class="insight">Investigate influential orders as meaningful business segments.</div>
+            </div>
+        """)
+
+    # -----------------------------
+    # Report download
+    # -----------------------------
+    st.html('<div class="section-title">📄 Week 3 Deliverable</div>')
+
+    report_path = "report/Week_3_Statistical_Modeling_Report.pdf"
+
+    try:
+        with open(report_path, "rb") as report_file:
+            st.download_button(
+                label="⬇️ Download Week 3 Statistical Modeling Report",
+                data=report_file.read(),
+                file_name="Week_3_Statistical_Modeling_Report.pdf",
+                mime="application/pdf"
+            )
+    except FileNotFoundError:
+        st.info(
+            "Week 3 PDF report is not available in the deployed repository yet. "
+            "The statistical results above are still available."
+        )
+
+
 # ============================================================
 # DATA EXPLORER
 # ============================================================
 
-with tabs[7]:
+with tabs[8]:
 
     st.html('<div class="section-title">🔎 Interactive Data Explorer</div>')
 
@@ -1485,7 +1821,7 @@ st.html("""
 
         Built with Python • Pandas • Plotly • SciPy • Streamlit<br>
 
-        Junior Data Scientist Internship • Yuva Intern • Week 2 EDA
+        Junior Data Scientist Internship • Yuva Intern • Week 3 Statistical Modeling
 
     </div>
     """)
