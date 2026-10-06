@@ -21,13 +21,21 @@
 # 🏢 Internship Overview
 
 | 🔹 Category | 📌 Details |
+
 |---|---|
+
 | **Organization** | Yuva Intern |
+
 | **Role** | Junior Data Scientist Intern |
+
 | **Duration** | 25 September 2026 – 06 November 2026 |
+
 | **Program** | 6-Week Data Science Internship |
+
 | **Primary Domain** | Data Science & Analytics |
-| **Current Progress** | 🟢 Week 2 Completed |
+
+| **Current Progress** | 🟢 Week 3 Completed |
+
 | **Repository Status** | 🟢 Active |
 
 ---
@@ -42,46 +50,76 @@ The project follows a structured approach:
 
 <div align="center">
 
-**Raw Data**  
-↓  
-**Data Cleaning & Preprocessing**  
-↓  
-**Exploratory Data Analysis**  
-↓  
-**Statistical Analysis**  
-↓  
-**Machine Learning**  
-↓  
-**Model Evaluation**  
-↓  
+**Raw Data**  
+
+↓  
+
+**Data Cleaning & Preprocessing**  
+
+↓  
+
+**Exploratory Data Analysis**  
+
+↓  
+
+**Statistical Analysis**  
+
+↓  
+
+**Machine Learning**  
+
+↓  
+
+**Model Evaluation**  
+
+↓  
+
 **Business Insights**
 
 </div>
 
 Each weekly task is documented through reproducible notebooks, reports, analysis, and supporting project files.
 
+🌐 Live Streamlit Dashboard: https://junior-data-science-internship.streamlit.app/
+
+💻 GitHub Repository: https://github.com/anandrajyadav/Junior-Data-Science-Internship
+
 ---
 
 # 🗺️ Internship Roadmap
 
 | Week | Focus Area | Status |
+
 |---|---|---|
+
 | 🧹 **Week 1** | Data Gathering, Cleaning & Preprocessing | ✅ Completed |
+
 | 📊 **Week 2** | Exploratory Data Analysis | ✅ Completed |
-| ⚙️ **Week 3** | Advanced Analysis / Feature Engineering | 🔜 Upcoming |
+
+| ⚙️ **Week 3** | Statistical Modeling & Hypothesis Testing | ✅ Completed |
+
 | 🤖 **Week 4** | Machine Learning | 🔜 Upcoming |
+
 | 📈 **Week 5** | Model Evaluation & Improvement | 🔜 Upcoming |
+
 | 🏆 **Week 6** | Final Project & Business Insights | 🔜 Upcoming |
 
 ### 📈 Current Progress
 
 ```text
-Week 1  ████████████████████  100% ✅
-Week 2  ████████████████████  100% ✅
-Week 3  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
-Week 4  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
-Week 5  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
-Week 6  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
+
+Week 1  ████████████████████  100% ✅
+
+Week 2  ████████████████████  100% ✅
+
+Week 3  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
+
+Week 4  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
+
+Week 5  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
+
+Week 6  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
+
 ```
 
 ---
@@ -102,11 +140,11 @@ Week 6  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
 
 ### 📐 Statistics
 
-`SciPy` `Descriptive Statistics` `IQR` `Mann–Whitney U Test`
+`SciPy` `Statsmodels` `Scikit-learn` `Descriptive Statistics` `IQR` `Mann–Whitney U Test`
 
 ### 📓 Development
 
-`Jupyter Notebook` `VS Code`
+`Jupyter Notebook` `VS Code` `Streamlit` `Plotly`
 
 ### 🔧 Version Control
 
@@ -117,29 +155,53 @@ Week 6  ░░░░░░░░░░░░░░░░░░░░    0% 🔜
 # 📁 Repository Structure
 
 ```text
+
 Junior-Data-Science-Internship/
+
 │
+
 ├── 📂 data/
-│   ├── 📂 raw/
-│   │   └── Online Retail.xlsx
-│   │
-│   └── 📂 cleaned/
-│       └── Online_Retail_Cleaned.csv
+
+│   ├── 📂 raw/
+
+│   │   └── Online Retail.xlsx
+
+│   │
+
+│   └── 📂 cleaned/
+
+│       └── Online_Retail_Cleaned.csv
+
 │
+
 ├── 📂 notebooks/
-│   ├── Week_1_Data_Cleaning.ipynb
-│   └── Week_2_EDA.ipynb
+
+│   ├── Week_1_Data_Cleaning.ipynb
+
+│   └── Week_2_EDA.ipynb
+
 │
+
 ├── 📂 report/
-│   ├── Week_1_Data_Cleaning_Report.pdf
-│   └── Week_2_EDA_Report.pdf
+
+│   ├── Week_1_Data_Cleaning_Report.pdf
+
+│   └── Week_2_EDA_Report.pdf
+
 │
+
 ├── 📂 src/
-│   └── data_cleaning.py
+
+│   └── data_cleaning.py
+
 │
+
 ├── 📄 requirements.txt
+
 ├── 📄 .gitignore
+
 └── 📄 README.md
+
 ```
 
 ---
@@ -159,12 +221,19 @@ The project uses the **Online Retail dataset**, containing transaction-level ret
 ### Main Columns
 
 - `InvoiceNo`
+
 - `StockCode`
+
 - `Description`
+
 - `Quantity`
+
 - `InvoiceDate`
+
 - `UnitPrice`
+
 - `CustomerID`
+
 - `Country`
 
 ---
@@ -174,14 +243,23 @@ The project uses the **Online Retail dataset**, containing transaction-level ret
 The following preprocessing steps were completed:
 
 1. Initial dataset exploration
+
 2. Missing-value analysis
+
 3. Duplicate detection and removal
+
 4. Data-type validation and conversion
+
 5. Missing product descriptions handled using `Unknown Product`
+
 6. Invalid `UnitPrice` values identified and removed
+
 7. Negative quantities investigated and retained
+
 8. Statistical outliers investigated using the IQR method
+
 9. Final data-quality validation
+
 10. Cleaned dataset exported as CSV
 
 ---
@@ -189,12 +267,19 @@ The following preprocessing steps were completed:
 ## 📊 Week 1 Dataset Transformation
 
 | Metric | Result |
+
 |---|---:|
+
 | Original records | **541,909** |
+
 | Duplicate rows removed | **5,263** |
+
 | Invalid UnitPrice records removed | **2,517** |
+
 | Final cleaned records | **534,129** |
+
 | Final columns | **8** |
+
 | Remaining duplicates | **0** |
 
 ---
@@ -208,8 +293,11 @@ Negative quantities were **not automatically removed**.
 They may represent:
 
 - Returns
+
 - Cancellations
+
 - Credit transactions
+
 - Transaction reversals
 
 Removing them without sufficient evidence could remove meaningful business information.
@@ -231,7 +319,9 @@ Outliers were investigated using the **Interquartile Range (IQR)** method.
 They were not automatically removed because unusual retail transactions may represent:
 
 - Bulk purchases
+
 - High-value orders
+
 - Legitimate business activity
 
 ---
@@ -245,13 +335,21 @@ Week 2 focused on performing comprehensive **Exploratory Data Analysis (EDA)** o
 The analysis focused on:
 
 - Distributions
+
 - Relationships
+
 - Trends
+
 - Customer behaviour
+
 - Product performance
+
 - Country-level sales
+
 - Negative transactions
+
 - Outliers
+
 - Statistical differences between groups
 
 ---
@@ -259,33 +357,61 @@ The analysis focused on:
 # 🔬 EDA Workflow
 
 ```text
+
 Cleaned Dataset
-      │
-      ├── Descriptive Statistics
-      │
-      ├── Revenue Analysis
-      │
-      ├── Negative Quantity Analysis
-      │
-      ├── Outlier Detection
-      │
-      ├── Distribution Analysis
-      │
-      ├── Correlation Analysis
-      │
-      ├── Scatter Plot Analysis
-      │
-      ├── Time-Based Analysis
-      │
-      ├── Product Analysis
-      │
-      ├── Country Analysis
-      │
-      ├── Customer Analysis
-      │
-      ├── AOV Analysis
-      │
-      └── Hypothesis Testing
+
+      │
+
+      ├── Descriptive Statistics
+
+      │
+
+      ├── Revenue Analysis
+
+      │
+
+      ├── Negative Quantity Analysis
+
+      │
+
+      ├── Outlier Detection
+
+      │
+
+      ├── Distribution Analysis
+
+      │
+
+      ├── Correlation Analysis
+
+      │
+
+      ├── Scatter Plot Analysis
+
+      │
+
+      ├── Time-Based Analysis
+
+      │
+
+      ├── Product Analysis
+
+      │
+
+      ├── Country Analysis
+
+      │
+
+      ├── Customer Analysis
+
+      │
+
+      ├── AOV Analysis
+
+      │
+
+      └── Hypothesis Testing
+
 ```
 
 ---
@@ -293,11 +419,17 @@ Cleaned Dataset
 # 📊 Week 2 Dataset
 
 | Metric | Value |
+
 |---|---:|
+
 | Records analyzed | **534,129** |
+
 | Duplicate rows | **0** |
+
 | Original numerical variables | `Quantity`, `UnitPrice` |
+
 | Derived variable | `Revenue` |
+
 | Customers with available CustomerID | **4,338** |
 
 ---
@@ -307,15 +439,21 @@ Cleaned Dataset
 Revenue was calculated as:
 
 ```text
+
 Revenue = Quantity × UnitPrice
+
 ```
 
 ### Results
 
 | Metric | Value |
+
 |---|---:|
+
 | Regular positive-quantity sales revenue | **10,642,110.80** |
+
 | Negative transaction impact | **-893,979.73** |
+
 | Net recorded revenue | **9,748,131.07** |
 
 ### 🔎 Interpretation
@@ -329,22 +467,35 @@ Separating these observations prevents regular sales analysis from mixing normal
 # 🔄 Negative Quantity Analysis
 
 | Metric | Result |
+
 |---|---:|
+
 | Negative transactions | **9,251** |
+
 | Percentage of dataset | **1.73%** |
+
 | Total negative quantity | **-275,560** |
+
 | Revenue impact | **-893,979.73** |
 
 ### 🧠 Analytical Decision
 
 ```text
+
 Negative Transactions
-        ↓
-      Retain
-        ↓
+
+        ↓
+
+      Retain
+
+        ↓
+
 Analyze Separately
-        ↓
+
+        ↓
+
 Compare With Regular Sales
+
 ```
 
 Negative quantities were retained because the dataset does not provide enough information to definitively classify every negative transaction.
@@ -382,16 +533,23 @@ This describes the observed dataset and does not by itself establish profitabili
 Customer analysis was restricted to records containing a valid `CustomerID`.
 
 | Metric | Result |
+
 |---|---:|
+
 | Identified customers | **4,338** |
+
 | Identified-customer orders | **18,532** |
+
 | Identified-customer revenue | **8,887,208.89** |
+
 | Overall invoice-level AOV | **479.56** |
 
 ### 📌 AOV Formula
 
 ```text
+
 AOV = Total Customer Revenue / Total Orders
+
 ```
 
 AOV was calculated at the **invoice/order level**, rather than treating every transaction line as a separate order.
@@ -403,22 +561,31 @@ AOV was calculated at the **invoice/order level**, rather than treating every tr
 The IQR method was used to investigate statistical outliers in:
 
 - `Quantity`
+
 - `UnitPrice`
+
 - `Revenue`
 
 ### Important Principle
 
 ```text
+
 Statistical Outlier
-        ≠
+
+        ≠
+
 Data Error
+
 ```
 
 An extreme observation may represent:
 
 - Bulk purchasing
+
 - High-value transactions
+
 - Expensive products
+
 - Legitimate business activity
 
 Therefore, outliers were investigated rather than automatically deleted.
@@ -430,14 +597,19 @@ Therefore, outliers were investigated rather than automatically deleted.
 The following visual analyses were performed:
 
 - Histograms
+
 - Box plots
+
 - Scatter plots
+
 - Correlation heatmap
 
 Relationships investigated included:
 
 - Quantity ↔ UnitPrice
+
 - Quantity ↔ Revenue
+
 - UnitPrice ↔ Revenue
 
 ### ⚠️ Important Statistical Note
@@ -445,7 +617,9 @@ Relationships investigated included:
 Revenue is mathematically derived from:
 
 ```text
+
 Revenue = Quantity × UnitPrice
+
 ```
 
 Therefore, correlations involving Revenue are partly induced by this mathematical relationship.
@@ -459,7 +633,9 @@ Correlation was interpreted as **association**, not causation.
 Time-based analysis was performed using:
 
 - Monthly revenue trends
+
 - Day-of-week patterns
+
 - Transaction timing
 
 Regular-sales analysis used positive-quantity transactions to avoid directly mixing normal sales activity with negative transaction effects.
@@ -481,13 +657,21 @@ and
 ### 🇩🇪 Germany
 
 | Statistic | Result |
+
 |---|---:|
+
 | United Kingdom orders | **18,019** |
+
 | Germany orders | **457** |
+
 | UK median order value | **299.95** |
+
 | Germany median order value | **354.85** |
+
 | U Statistic | **3,489,572.50** |
+
 | p-value | **< 0.000001** |
+
 | Rank-biserial effect size | **0.1525** |
 
 ### 🧠 Interpretation
@@ -511,15 +695,25 @@ The result describes the observed dataset and does not establish that country it
 Throughout the analysis, major data decisions followed this framework:
 
 ```text
+
 Observed Data
-      ↓
+
+      ↓
+
 Why is this happening?
-      ↓
+
+      ↓
+
 What are the alternatives?
-      ↓
+
+      ↓
+
 What is the analytical impact?
-      ↓
+
+      ↓
+
 What does it mean for the business?
+
 ```
 
 This approach helps preserve potentially meaningful information while making assumptions and limitations explicit.
@@ -529,15 +723,25 @@ This approach helps preserve potentially meaningful information while making ass
 # ⚠️ Assumptions & Limitations
 
 - Negative quantities may represent returns, cancellations, credits, or reversals.
+
 - Every negative transaction cannot be definitively classified from the available fields.
+
 - Statistical outliers are not necessarily data errors.
+
 - `CustomerID` values were not artificially inferred.
+
 - Revenue does not represent profit.
+
 - Product costs and operating expenses are unavailable.
+
 - Correlation does not imply causation.
+
 - Revenue is mathematically derived from `Quantity` and `UnitPrice`.
+
 - Customer analysis represents only records with available `CustomerID`.
+
 - The hypothesis test describes the observed dataset and does not establish causality.
+
 - Findings describe the available historical dataset and should not automatically be generalized to other businesses or future periods.
 
 ---
@@ -661,31 +865,57 @@ Rank-biserial effect size:
 # 🚀 Skills Developed
 
 ```text
+
 Python
+
 │
+
 ├── Data Cleaning
+
 ├── Data Validation
+
 ├── Missing Value Analysis
+
 ├── Duplicate Detection
+
 ├── Outlier Investigation
+
 │
+
 ├── Exploratory Data Analysis
+
 ├── Descriptive Statistics
+
 ├── Data Visualization
+
 ├── Correlation Analysis
+
 ├── Time-Based Analysis
+
 │
+
 ├── Customer Analytics
+
 ├── Product Analytics
+
 ├── Geographic Analysis
+
 ├── Revenue Analysis
+
 ├── AOV Analysis
+
 │
+
 ├── Hypothesis Testing
+
 ├── Effect Size
+
 ├── Statistical Interpretation
+
 │
+
 └── Business Insight Generation
+
 ```
 
 ---
@@ -695,22 +925,35 @@ Python
 The project uses:
 
 ```text
+
 Python
+
 Pandas
+
 NumPy
+
 Matplotlib
+
 Seaborn
+
 SciPy
+
 Jupyter Notebook
+
 VS Code
+
 Git
+
 GitHub
+
 ```
 
 Visualization sampling uses:
 
 ```python
+
 random_state = 42
+
 ```
 
 to improve reproducibility.
@@ -720,12 +963,19 @@ to improve reproducibility.
 # 🗺️ Upcoming Internship Roadmap
 
 | Week | Planned Focus | Status |
+
 |---|---|---|
+
 | 🧹 Week 1 | Data Cleaning & Preprocessing | ✅ |
+
 | 📊 Week 2 | Exploratory Data Analysis | ✅ |
-| ⚙️ Week 3 | Advanced Analysis / Feature Engineering | 🔜 |
+
+| ⚙️ Week 3 | Statistical Modeling & Hypothesis Testing | ✅ |
+
 | 🤖 Week 4 | Machine Learning | 🔜 |
+
 | 📈 Week 5 | Model Evaluation & Improvement | 🔜 |
+
 | 🏆 Week 6 | Final Data Science Project | 🔜 |
 
 ---
@@ -743,14 +993,22 @@ to improve reproducibility.
 I am currently building practical skills in:
 
 - 📊 Data Science
+
 - 🤖 Machine Learning
+
 - 📈 Data Analytics
+
 - 🧠 Artificial Intelligence
+
 - 📉 Business Intelligence
+
 - 🐍 Python
+
 - 💻 Software Development
 
 My goal is to continuously improve my ability to transform raw data into meaningful insights and practical solutions.
+
+My current internship progression is: Data Cleaning → EDA → Statistical Modeling → Deployment.
 
 ---
 
@@ -763,15 +1021,25 @@ It represents a practical journey of:
 <div align="center">
 
 ### **RAW DATA**
-↓  
+
+↓  
+
 ### **RELIABLE DATA**
-↓  
+
+↓  
+
 ### **EXPLORATION**
-↓  
+
+↓  
+
 ### **STATISTICAL EVIDENCE**
-↓  
+
+↓  
+
 ### **BUSINESS INSIGHTS**
-↓  
+
+↓  
+
 ### **DATA-DRIVEN DECISIONS**
 
 </div>
@@ -799,19 +1067,29 @@ It represents a practical journey of:
 ### 🎯 Objective
 
 Week 3 focused on applying statistical modeling techniques to investigate
+
 relationships between retail order characteristics and order value.
 
 The analysis moved beyond descriptive EDA into:
 
 - Research question and hypothesis formulation
+
 - Invoice-level feature engineering
+
 - OLS regression modeling
+
 - Statistical significance testing
+
 - Multicollinearity diagnostics
+
 - Residual diagnostics
+
 - Heteroscedasticity testing
+
 - HC3 robust inference
+
 - Sensitivity analysis
+
 - Business interpretation
 
 ---
@@ -819,14 +1097,19 @@ The analysis moved beyond descriptive EDA into:
 ### 🔬 Research Question
 
 > **Which order, product, geographic, and time-related characteristics are
+
 > significantly associated with retail order value?**
 
 ### 🧪 Hypotheses
 
 | Hypothesis | Description | Result |
+
 |---|---|---|
+
 | **H1** | Total Quantity is significantly associated with Order Value | ❌ Fail to Reject H₀ |
+
 | **H2** | Unique Products is significantly associated with Order Value | ✅ Reject H₀ |
+
 | **H3** | Country contributes significantly to Order Value differences | ❌ Fail to Reject H₀ |
 
 Significance level:
@@ -838,19 +1121,29 @@ Significance level:
 ### 🏗️ Modeling Approach
 
 The cleaned Week 1 Online Retail dataset was transformed from
+
 line-level transactions into an **invoice-level modeling dataset**.
 
 #### Key Features
 
 - `OrderValue`
+
 - `LogOrderValue`
+
 - `TotalQuantity`
+
 - `UniqueProducts`
+
 - `AvgUnitPrice`
+
 - `Country`
+
 - `Hour`
+
 - `DayOfWeek`
+
 - `Month`
+
 - `IsWeekend`
 
 The primary statistical model was:
@@ -858,6 +1151,7 @@ The primary statistical model was:
 > **Ordinary Least Squares (OLS) Regression**
 
 with **HC3 heteroscedasticity-robust standard errors** used for final
+
 statistical inference.
 
 ---
@@ -865,15 +1159,23 @@ statistical inference.
 ### 📊 Model Performance
 
 | Metric | Result |
+
 |---|---:|
+
 | Observations | **19,960** |
+
 | R² | **0.285469** |
+
 | Adjusted R² | **0.284860** |
+
 | MAE (log scale) | **0.712313** |
+
 | RMSE (log scale) | **1.019302** |
+
 | Overall Model p-value | **< 0.001** |
 
 The model explains approximately **28.55% of the variation in the
+
 log-transformed order value**.
 
 > ⚠️ R² represents explained variance, not prediction accuracy.
@@ -885,13 +1187,21 @@ log-transformed order value**.
 Several diagnostics were performed before interpreting the regression results.
 
 | Diagnostic | Purpose | Result / Action |
+
 |---|---|---|
+
 | Distribution Analysis | Assess target distribution | Log transformation applied |
+
 | VIF | Detect multicollinearity | Predictor relationships evaluated |
+
 | Q-Q Plot | Assess residual normality | Graphical diagnostic |
+
 | Residual Analysis | Detect systematic patterns | Model diagnostics performed |
+
 | Breusch–Pagan Test | Test heteroscedasticity | Significant |
+
 | HC3 Robust SE | Robust statistical inference | Applied |
+
 | Cook's Distance | Identify influential observations | 701 observations screened |
 
 ### Heteroscedasticity
@@ -899,11 +1209,13 @@ Several diagnostics were performed before interpreting the regression results.
 The Breusch–Pagan test produced:
 
 - LM p-value: **< 0.001**
+
 - F p-value: **< 0.001**
 
 This provided evidence of heteroscedasticity.
 
 Therefore, **HC3 robust standard errors** were used for final hypothesis
+
 testing and coefficient inference.
 
 ---
@@ -917,7 +1229,9 @@ testing and coefficient inference.
 **Decision:** Fail to Reject H₀
 
 The available evidence was insufficient to establish a statistically
+
 significant association between Total Quantity and Order Value at the
+
 5% significance level.
 
 ---
@@ -929,7 +1243,9 @@ significant association between Total Quantity and Order Value at the
 **Decision:** Reject H₀
 
 This provides extremely strong statistical evidence that the number of
+
 unique products in an order is associated with Order Value within the
+
 specified model.
 
 ---
@@ -941,9 +1257,11 @@ specified model.
 **Decision:** Fail to Reject H₀
 
 The analysis did not provide sufficient evidence that Country contributes
+
 significantly to Order Value differences at the 5% significance level.
 
 > **Important:** Failure to reject H₀ does not prove that a variable has
+
 > no effect. It indicates insufficient evidence under the specified model.
 
 ---
@@ -951,21 +1269,29 @@ significantly to Order Value differences at the 5% significance level.
 ### 🧠 Sensitivity Analysis
 
 A sensitivity analysis was conducted using Cook's Distance to investigate
+
 the influence of potentially unusual observations.
 
 | Metric | Full Model | Sensitivity Model |
+
 |---|---:|---:|
+
 | Observations | 19,960 | 19,259 |
+
 | Observations Removed | — | **701** |
+
 | R² | **0.285469** | **0.413878** |
 
 The increase in R² from **0.2855 → 0.4139** demonstrates that influential
+
 observations materially affect model fit.
 
 These observations were **not automatically treated as errors**, because
+
 unusually large retail orders may represent genuine commercial activity.
 
 This supports a business-aware approach to outlier investigation rather
+
 than blindly deleting extreme observations.
 
 ---
@@ -975,28 +1301,37 @@ than blindly deleting extreme observations.
 #### 1. Product Diversity
 
 The strong statistical evidence for Unique Products suggests that basket
+
 composition may be useful for:
 
 - Cross-selling
+
 - Product recommendations
+
 - Complementary product bundles
+
 - Basket optimization
 
 #### 2. Quantity
 
 Total Quantity was not statistically significant at α = 0.05 in this
+
 model.
 
 Future analysis should investigate:
 
 - Nonlinear quantity effects
+
 - Product mix
+
 - Discounts
+
 - Interaction effects
 
 #### 3. Geographic Differences
 
 Country was not statistically significant at the 5% level after accounting
+
 for the other modeled variables.
 
 Future analysis could explore more granular customer and product segments.
@@ -1004,13 +1339,17 @@ Future analysis could explore more granular customer and product segments.
 #### 4. Influential Orders
 
 The sensitivity analysis indicates that a relatively small group of orders
+
 can substantially influence model fit.
 
 These orders should be investigated as potential:
 
 - Bulk purchases
+
 - Business customers
+
 - High-value customer segments
+
 - Exceptional product combinations
 
 ---
@@ -1018,13 +1357,21 @@ These orders should be investigated as potential:
 ### ⚠️ Assumptions & Limitations
 
 - The analysis uses observational retail data.
+
 - Statistical association does not establish causality.
+
 - Repeated purchases by the same customer may introduce dependence.
+
 - Promotions and discounts are not fully available in the dataset.
+
 - CustomerID is missing for some transactions.
+
 - Negative-quantity transactions were excluded from the primary positive-sales
-  order-value model.
+
+  order-value model.
+
 - Linear regression may not capture nonlinear relationships completely.
+
 - Influential observations can materially affect model performance.
 
 ---
@@ -1034,24 +1381,55 @@ These orders should be investigated as potential:
 Future work can extend this analysis through:
 
 - Customer-level RFM features
+
 - Product-category features
+
 - Promotion and discount variables
+
 - Interaction effects
+
 - Nonlinear regression
+
 - Ridge and Lasso regression
+
 - Tree-based machine-learning models
+
 - Cross-validation
+
 - Train-test validation
+
 - Robust regression
+
 - Quantile regression
+
 - Mixed-effects / hierarchical models
+
 - Customer Lifetime Value modeling
 
 ---
 
+### 🌐 Live Streamlit Dashboard
+
+The Week 3 analysis has been integrated into an interactive Streamlit application combining:
+
+📊 EDA and business KPIs
+
+📈 Sales, product, customer and geography analysis
+
+🧪 Statistical analysis and hypothesis testing
+
+📐 Week 3 OLS modeling results
+
+🔍 Sensitivity analysis
+
+🔎 Interactive data exploration
+
+🌐 Live Dashboard: https://junior-data-science-internship.streamlit.app/
+
 ### 📄 Week 3 Deliverables
 
 - 📓 `Week_3_Statistical_Modeling.ipynb`
+
 - 📄 `Week_3_Statistical_Modeling_Report.pdf`
 
 ---
@@ -1059,6 +1437,7 @@ Future work can extend this analysis through:
 ### 🛠️ Technologies Used
 
 `Python` • `Pandas` • `NumPy` • `SciPy` • `Statsmodels` • `Scikit-learn`
+
 • `Matplotlib` • `Seaborn` • `Jupyter Notebook` • `Git` • `GitHub`
 
 ---
