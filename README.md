@@ -791,3 +791,274 @@ It represents a practical journey of:
 **Building Data Science Skills One Week at a Time.**
 
 </div>
+
+---
+
+## 📈 Week 3 — Statistical Modeling & Hypothesis Testing
+
+### 🎯 Objective
+
+Week 3 focused on applying statistical modeling techniques to investigate
+relationships between retail order characteristics and order value.
+
+The analysis moved beyond descriptive EDA into:
+
+- Research question and hypothesis formulation
+- Invoice-level feature engineering
+- OLS regression modeling
+- Statistical significance testing
+- Multicollinearity diagnostics
+- Residual diagnostics
+- Heteroscedasticity testing
+- HC3 robust inference
+- Sensitivity analysis
+- Business interpretation
+
+---
+
+### 🔬 Research Question
+
+> **Which order, product, geographic, and time-related characteristics are
+> significantly associated with retail order value?**
+
+### 🧪 Hypotheses
+
+| Hypothesis | Description | Result |
+|---|---|---|
+| **H1** | Total Quantity is significantly associated with Order Value | ❌ Fail to Reject H₀ |
+| **H2** | Unique Products is significantly associated with Order Value | ✅ Reject H₀ |
+| **H3** | Country contributes significantly to Order Value differences | ❌ Fail to Reject H₀ |
+
+Significance level:
+
+**α = 0.05**
+
+---
+
+### 🏗️ Modeling Approach
+
+The cleaned Week 1 Online Retail dataset was transformed from
+line-level transactions into an **invoice-level modeling dataset**.
+
+#### Key Features
+
+- `OrderValue`
+- `LogOrderValue`
+- `TotalQuantity`
+- `UniqueProducts`
+- `AvgUnitPrice`
+- `Country`
+- `Hour`
+- `DayOfWeek`
+- `Month`
+- `IsWeekend`
+
+The primary statistical model was:
+
+> **Ordinary Least Squares (OLS) Regression**
+
+with **HC3 heteroscedasticity-robust standard errors** used for final
+statistical inference.
+
+---
+
+### 📊 Model Performance
+
+| Metric | Result |
+|---|---:|
+| Observations | **19,960** |
+| R² | **0.285469** |
+| Adjusted R² | **0.284860** |
+| MAE (log scale) | **0.712313** |
+| RMSE (log scale) | **1.019302** |
+| Overall Model p-value | **< 0.001** |
+
+The model explains approximately **28.55% of the variation in the
+log-transformed order value**.
+
+> ⚠️ R² represents explained variance, not prediction accuracy.
+
+---
+
+### 🧪 Statistical Diagnostics
+
+Several diagnostics were performed before interpreting the regression results.
+
+| Diagnostic | Purpose | Result / Action |
+|---|---|---|
+| Distribution Analysis | Assess target distribution | Log transformation applied |
+| VIF | Detect multicollinearity | Predictor relationships evaluated |
+| Q-Q Plot | Assess residual normality | Graphical diagnostic |
+| Residual Analysis | Detect systematic patterns | Model diagnostics performed |
+| Breusch–Pagan Test | Test heteroscedasticity | Significant |
+| HC3 Robust SE | Robust statistical inference | Applied |
+| Cook's Distance | Identify influential observations | 701 observations screened |
+
+### Heteroscedasticity
+
+The Breusch–Pagan test produced:
+
+- LM p-value: **< 0.001**
+- F p-value: **< 0.001**
+
+This provided evidence of heteroscedasticity.
+
+Therefore, **HC3 robust standard errors** were used for final hypothesis
+testing and coefficient inference.
+
+---
+
+### 🔍 Hypothesis Testing Results
+
+#### H1 — Total Quantity
+
+**p-value = 0.08383**
+
+**Decision:** Fail to Reject H₀
+
+The available evidence was insufficient to establish a statistically
+significant association between Total Quantity and Order Value at the
+5% significance level.
+
+---
+
+#### H2 — Unique Products
+
+**p-value = 4.235 × 10⁻⁴³**
+
+**Decision:** Reject H₀
+
+This provides extremely strong statistical evidence that the number of
+unique products in an order is associated with Order Value within the
+specified model.
+
+---
+
+#### H3 — Country
+
+**p-value = 0.16141**
+
+**Decision:** Fail to Reject H₀
+
+The analysis did not provide sufficient evidence that Country contributes
+significantly to Order Value differences at the 5% significance level.
+
+> **Important:** Failure to reject H₀ does not prove that a variable has
+> no effect. It indicates insufficient evidence under the specified model.
+
+---
+
+### 🧠 Sensitivity Analysis
+
+A sensitivity analysis was conducted using Cook's Distance to investigate
+the influence of potentially unusual observations.
+
+| Metric | Full Model | Sensitivity Model |
+|---|---:|---:|
+| Observations | 19,960 | 19,259 |
+| Observations Removed | — | **701** |
+| R² | **0.285469** | **0.413878** |
+
+The increase in R² from **0.2855 → 0.4139** demonstrates that influential
+observations materially affect model fit.
+
+These observations were **not automatically treated as errors**, because
+unusually large retail orders may represent genuine commercial activity.
+
+This supports a business-aware approach to outlier investigation rather
+than blindly deleting extreme observations.
+
+---
+
+### 💼 Business Implications
+
+#### 1. Product Diversity
+
+The strong statistical evidence for Unique Products suggests that basket
+composition may be useful for:
+
+- Cross-selling
+- Product recommendations
+- Complementary product bundles
+- Basket optimization
+
+#### 2. Quantity
+
+Total Quantity was not statistically significant at α = 0.05 in this
+model.
+
+Future analysis should investigate:
+
+- Nonlinear quantity effects
+- Product mix
+- Discounts
+- Interaction effects
+
+#### 3. Geographic Differences
+
+Country was not statistically significant at the 5% level after accounting
+for the other modeled variables.
+
+Future analysis could explore more granular customer and product segments.
+
+#### 4. Influential Orders
+
+The sensitivity analysis indicates that a relatively small group of orders
+can substantially influence model fit.
+
+These orders should be investigated as potential:
+
+- Bulk purchases
+- Business customers
+- High-value customer segments
+- Exceptional product combinations
+
+---
+
+### ⚠️ Assumptions & Limitations
+
+- The analysis uses observational retail data.
+- Statistical association does not establish causality.
+- Repeated purchases by the same customer may introduce dependence.
+- Promotions and discounts are not fully available in the dataset.
+- CustomerID is missing for some transactions.
+- Negative-quantity transactions were excluded from the primary positive-sales
+  order-value model.
+- Linear regression may not capture nonlinear relationships completely.
+- Influential observations can materially affect model performance.
+
+---
+
+### 🚀 Future Improvements
+
+Future work can extend this analysis through:
+
+- Customer-level RFM features
+- Product-category features
+- Promotion and discount variables
+- Interaction effects
+- Nonlinear regression
+- Ridge and Lasso regression
+- Tree-based machine-learning models
+- Cross-validation
+- Train-test validation
+- Robust regression
+- Quantile regression
+- Mixed-effects / hierarchical models
+- Customer Lifetime Value modeling
+
+---
+
+### 📄 Week 3 Deliverables
+
+- 📓 `Week_3_Statistical_Modeling.ipynb`
+- 📄 `Week_3_Statistical_Modeling_Report.pdf`
+
+---
+
+### 🛠️ Technologies Used
+
+`Python` • `Pandas` • `NumPy` • `SciPy` • `Statsmodels` • `Scikit-learn`
+• `Matplotlib` • `Seaborn` • `Jupyter Notebook` • `Git` • `GitHub`
+
+---
